@@ -1,5 +1,6 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
+import {HE} from './variable.js'
 
 Vue.use(Vuex)
 
@@ -10,7 +11,8 @@ export default new Vuex.Store({
   state: {
     num: 100,
     name: 'hejianxin',
-    location: '北京'
+    location: '北京',
+    sex: 'strong'
   },
   modules: {
     moduleA: {
@@ -29,8 +31,11 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    [NUM_ADD](){
-      this.state.num += 1
+    [HE](state, payload){
+      state.num += payload.count
+    },
+    [NUM_ADD](state){
+      state.num += 1
     },
     [LOCATION_CHANGE](){
       this.state.location = '湖南'
